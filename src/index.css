@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Design tokens as CSS variables (mirror tailwind.config.js + Figma names)
+--------------------------------------------------------------------------- */
+:root {
+  --color-white: #ffffff;
+  --color-black: #1c221b;
+  --color-fiolet: #6637ed;
+  --color-green: #ceff1b;
+  --color-pink: #fbd2ff;
+
+  --radius-card: 24px;
+  --padding-card: 24px;
+  --padding-block: 80px;
+
+  --border-strong: 2px solid var(--color-black);
+
+  /* Fluid heading sizes — scale smoothly between the Figma breakpoints
+     (mobile 393 → desktop 1440). Avoids breakage at intermediate widths. */
+  --fs-h1: clamp(3.4375rem, 1.5rem + 9vw, 8.4375rem); /* 55px → 135px */
+  --fs-h2: clamp(1.875rem, 1.2rem + 2.5vw, 3.125rem); /* 30px → 50px */
+  --fs-h3: clamp(1.75rem, 1.4rem + 1.2vw, 2.1875rem); /* 28px → 35px */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-fiolet text-black font-sans antialiased;
+    font-feature-settings: 'ss01';
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-normal;
+  }
+
+  /* Accessible focus ring across the whole app */
+  :focus-visible {
+    outline: 3px solid var(--color-fiolet);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Respect users who prefer reduced motion: kill all transitions/animations */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Section heading sizes driven by the fluid tokens above */
+  .text-display-h1 {
+    font-size: var(--fs-h1);
+    line-height: 0.95;
+  }
+  .text-display-h2 {
+    font-size: var(--fs-h2);
+    line-height: 1.1;
+  }
+  .text-display-h3 {
+    font-size: var(--fs-h3);
+    line-height: 1.2;
+  }
+
+  /* Site container: 1760px content max (1920 box − 80px gutters each side).
+     Padding is 80px at 1440 and 1920 (clamp ceiling) and shrinks
+     proportionally below via 5.56vw (80 / 1440). */
+  .container-fluid {
+    @apply mx-auto w-full;
+    max-width: 1920px;
+    padding-inline: clamp(16px, 5.56vw, 80px);
+  }
+}
+
+/* Marquee keyframes (used by the reusable <Marquee/> as a CSS fallback) */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { FIND_US } from '../../data/content'
 import { fadeUp, viewportOnce } from '../../lib/motion'
 import Tag from '../ui/Tag'
-import Button from '../ui/Button'
 import Marquee from '../ui/Marquee'
 import marqueeStrip from '../../assets/images/marquee-strip.svg'
 import handCan from '../../assets/images/hand-can.png'
@@ -13,7 +12,7 @@ export default function WhereToBuy() {
   return (
     <section
       id="find-us"
-      className="relative overflow-hidden bg-pink py-block"
+      className="relative overflow-hidden bg-pink py-block lg:min-h-[clamp(440px,40vw,780px)]"
       aria-labelledby="find-us-heading"
     >
       <div
@@ -28,7 +27,7 @@ export default function WhereToBuy() {
       <motion.img
         src={handCan}
         alt="A hand holding a can of Fruit Beer"
-        className="pointer-events-none absolute right-0 bottom-2 z-20 hidden w-[clamp(440px,55vw,1120px)] drop-shadow-2xl lg:block"
+        className="pointer-events-none absolute right-0 bottom-2 z-20 w-[clamp(180px,50vw,540px)] drop-shadow-2xl lg:w-auto lg:h-[82%] lg:max-h-[88%]"
         initial={{ x: '100%' }}
         animate={reduce ? { x: '0%' } : { x: ['100%', '0%', '0%', '100%'] }}
         transition={
@@ -50,7 +49,7 @@ export default function WhereToBuy() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6"
+          className="flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-6"
         >
           <Tag variant="fiolet">{FIND_US.tag}</Tag>
           <h2 id="find-us-heading" className="text-display-h2 font-display">
@@ -58,17 +57,7 @@ export default function WhereToBuy() {
           </h2>
         </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="mt-10"
-        >
-          <Button as="a" href="#footer" variant="green" size={240}>
-            {FIND_US.cta}
-          </Button>
-        </motion.div>
+
       </div>
 
       {/* Retailer marquee — full strip from Figma (logos + flower dividers).

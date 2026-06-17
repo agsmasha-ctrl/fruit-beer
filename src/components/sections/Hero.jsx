@@ -39,7 +39,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 md:mt-8"
         >
-          <Button as="a" href="#find-us" variant="green" size={240}>
+          <Button as="a" href="#find-us" size="L">
             {HERO.cta}
           </Button>
         </motion.div>

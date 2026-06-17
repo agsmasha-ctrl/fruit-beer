@@ -62,10 +62,10 @@ export default function AgeGate() {
                 Are you 18 and over?
               </h1>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-                <Button variant="green" size={150} onClick={confirm}>
+                <Button size="S" onClick={confirm}>
                   Yes I am
                 </Button>
-                <Button variant="pink" size={150} onClick={() => setStatus('denied')}>
+                <Button size="S" onClick={() => setStatus('denied')}>
                   No I am not
                 </Button>
               </div>

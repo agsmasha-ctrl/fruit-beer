@@ -24,7 +24,7 @@ export default function NotFound() {
             This page disappeared as quickly as a cold can of our fruit beer on a hot summer day.
           </p>
           <div className="mt-2">
-            <Button variant="green" size={170} onClick={() => navigate('/')}>
+            <Button size="S" onClick={() => navigate('/')}>
               Back to the bar
             </Button>
           </div>

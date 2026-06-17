@@ -27,7 +27,7 @@ export default function Collection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="mt-12 grid grid-cols-1 place-items-center gap-8 sm:grid-cols-2 md:mt-16 lg:grid-cols-3"
+          className="mt-12 grid grid-cols-1 place-items-center gap-8 md:mt-16 lg:grid-cols-3"
         >
           {COLLECTION.cards.map((card) => (
             <CollectionCard key={card.name} {...card} />

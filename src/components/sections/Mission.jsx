@@ -81,7 +81,7 @@ export default function Mission() {
         initial="hidden"
         whileInView="show"
         viewport={viewportOnce}
-        className="container-fluid relative z-10 mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:hidden"
+        className="container-fluid relative z-10 mt-12 grid grid-cols-1 gap-4 lg:hidden"
       >
         {MISSION.cards.map((card, i) => (
           <div key={card.title} style={{ aspectRatio: '537 / 510' }}>

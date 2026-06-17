@@ -23,6 +23,7 @@ export default {
       fontFamily: {
         display: ['Caprasimo', 'ui-serif', 'Georgia', 'serif'],
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        script: ['Caveat', 'ui-cursive', 'cursive'],
       },
       fontSize: {
         // [size, { lineHeight }] — from Figma type styles
@@ -39,7 +40,7 @@ export default {
       },
       spacing: {
         'card': '24px', // padding-card
-        'block': '80px', // padding-block
+        'block': 'clamp(40px, 5.56vw, 80px)', // padding-block — fluid: 40px mobile → 80px desktop
       },
       borderRadius: {
         card: '24px',

@@ -3,8 +3,11 @@ import { RECIPE } from '../../data/content'
 import { fadeUp, staggerContainer, viewportOnce } from '../../lib/motion'
 import SectionHeading from '../ui/SectionHeading'
 import RecipeCard from '../ui/RecipeCard'
-import { RecipeFlower } from '../ui/Decor'
 import recipeCan from '../../assets/images/can-2.png'
+import recipeBlob from '../../assets/images/recipe-blob.svg'
+import arrowLeft from '../../assets/images/recipe-arrow-left.svg'
+import arrowRight from '../../assets/images/recipe-arrow-right.svg'
+import squiggle from '../../assets/images/recipe-squiggle.svg'
 
 // Split the 5 ingredients: 2 on the left of the can, 3 on the right —
 // matching the Figma layout. On small screens everything stacks.
@@ -18,9 +21,16 @@ export default function Recipe() {
       className="relative overflow-hidden bg-fiolet py-block text-white"
       aria-labelledby="recipe-heading"
     >
-      {/* Pink 3-petal flower rising behind the central can, spanning the full
-          section width at every breakpoint (viewBox ratio 1920:760). */}
-      <RecipeFlower className="pointer-events-none absolute inset-x-0 bottom-0 z-0 aspect-[1920/760] w-full" />
+      {/* Pink organic blob rising behind the bottom card (replaces the flower),
+          spanning the full section width (viewBox ratio 1439:551). Nudged down so
+          the empty strip at the bottom of the SVG bleeds past the section edge and
+          the pink base merges seamlessly into the pink section below. */}
+      <img
+        src={recipeBlob}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 aspect-[1439/551] w-full translate-y-[6%]"
+      />
 
       <div className="container-fluid relative z-10">
         <SectionHeading tag={RECIPE.tag} tagVariant="green">
@@ -41,18 +51,44 @@ export default function Recipe() {
             ))}
           </motion.div>
 
-          {/* Center can */}
-          <motion.img
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            src={recipeCan}
-            alt="A can of Fruit Beer"
-            className="order-1 mx-auto w-56 max-w-full drop-shadow-2xl sm:w-64 lg:order-2 lg:w-72"
-            whileHover={{ y: -10, rotate: 2 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 14 }}
-          />
+          {/* Center can + decorative arrows that point out to the cards.
+              Arrows are anchored to the can wrapper so they track the can across
+              breakpoints; negative offsets push them into the side gaps. */}
+          <div className="relative order-1 mx-auto w-56 max-w-full sm:w-64 lg:order-2 lg:w-72">
+            <motion.img
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={viewportOnce}
+              src={recipeCan}
+              alt="A can of Fruit Beer"
+              className="relative z-10 w-full drop-shadow-2xl"
+              whileHover={{ y: -10, rotate: 2 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 14 }}
+            />
+
+            {/* White arc — left of the can */}
+            <img
+              src={arrowLeft}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute left-[-22%] top-[8%] z-30 w-[clamp(72px,11vw,150px)] lg:left-[-44%]"
+            />
+            {/* White arrow — upper right of the can */}
+            <img
+              src={arrowRight}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute right-[-18%] top-[-2%] z-30 w-[clamp(90px,12vw,165px)] lg:right-[-42%]"
+            />
+            {/* Pink squiggle — lower right of the can */}
+            <img
+              src={squiggle}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute right-[-22%] bottom-[2%] z-30 w-[clamp(80px,12vw,150px)] lg:right-[-48%]"
+            />
+          </div>
 
           {/* Right clouds */}
           <motion.div

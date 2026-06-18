@@ -12,7 +12,7 @@ export default function WhereToBuy() {
   return (
     <section
       id="find-us"
-      className="relative overflow-hidden bg-pink py-block lg:min-h-[clamp(440px,40vw,780px)]"
+      className="relative -mt-4 overflow-hidden bg-pink py-block lg:min-h-[clamp(440px,40vw,780px)]"
       aria-labelledby="find-us-heading"
     >
       <div
@@ -27,7 +27,7 @@ export default function WhereToBuy() {
       <motion.img
         src={handCan}
         alt="A hand holding a can of Fruit Beer"
-        className="pointer-events-none absolute right-0 bottom-2 z-20 w-[clamp(180px,50vw,540px)] drop-shadow-2xl lg:w-auto lg:h-[82%] lg:max-h-[88%]"
+        className="pointer-events-none absolute right-0 bottom-[23vw] z-20 w-[clamp(216px,60vw,648px)] drop-shadow-2xl lg:bottom-2 lg:w-auto lg:h-[82%] lg:max-h-[88%]"
         initial={{ x: '100%' }}
         animate={reduce ? { x: '0%' } : { x: ['100%', '0%', '0%', '100%'] }}
         transition={

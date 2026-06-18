@@ -128,9 +128,11 @@ export function HeroSunburst({ className = '', color = '#fbd2ff' }) {
           transform={`rotate(${a} ${cx} ${cy})`}
         />
       ))}
-      {/* dome covers the inner ends of the rays */}
+      {/* Full-width pink base that domes up in the centre. The flat full-width
+          bottom keeps the hero's bottom edge entirely pink so it merges into the
+          next (pink) section — no fiolet strip shows between/under the cans. */}
       <path
-        d={`M ${cx - domeR} ${cy} A ${domeR} ${domeR} 0 0 1 ${cx + domeR} ${cy} Z`}
+        d={`M 0 ${cy} L 1920 ${cy} L 1920 ${cy - 70} C 1450 ${cy - 70}, 1250 ${cy - domeR}, ${cx} ${cy - domeR} C 670 ${cy - domeR}, 470 ${cy - 70}, 0 ${cy - 70} Z`}
         fill={color}
       />
     </svg>

@@ -11,7 +11,7 @@ export default function Mission() {
   return (
     <section
       id="mission"
-      className="relative overflow-hidden bg-pink py-block"
+      className="relative -mt-1 overflow-hidden bg-pink py-block"
       aria-labelledby="mission-title"
     >
       {/* Lime concentric semicircle radiating from the bottom centre.
@@ -84,7 +84,11 @@ export default function Mission() {
         className="container-fluid relative z-10 mt-12 grid grid-cols-1 gap-4 lg:hidden"
       >
         {MISSION.cards.map((card, i) => (
-          <div key={card.title} style={{ aspectRatio: '537 / 510' }}>
+          <div
+            key={card.title}
+            className="mx-auto w-full max-w-[400px]"
+            style={{ aspectRatio: '537 / 510' }}
+          >
             <MissionCard {...card} orientation={orientationFor(i)} />
           </div>
         ))}

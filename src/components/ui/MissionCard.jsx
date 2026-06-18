@@ -29,7 +29,7 @@ export default function MissionCard({ title, body, variant = 'white', orientatio
       variants={staggerItem}
       whileHover={{ y: -8 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="relative flex h-full w-full flex-col justify-center px-[16%] py-12"
+      className="relative flex h-full w-full flex-col justify-center px-[7%] py-12 lg:px-[16%]"
     >
       <svg
         viewBox="0 0 537 510"
@@ -47,7 +47,9 @@ export default function MissionCard({ title, body, variant = 'white', orientatio
         />
       </svg>
 
-      <div className={`relative z-10 flex flex-col gap-3 ${TEXT[variant]}`}>
+      <div
+        className={`relative z-10 mx-auto flex w-full max-w-[247px] flex-col items-center gap-3 text-center lg:max-w-none lg:items-start lg:text-left ${TEXT[variant]}`}
+      >
         <h3 className="text-display-h3 max-w-[12ch] font-display">{title}</h3>
         <p className="max-w-[26ch] font-sans text-sm leading-relaxed md:text-base">{body}</p>
       </div>

@@ -11,13 +11,14 @@ export default function CollectionCard({
   can,
   flower = 'petals8',
   titleColor = 'text-fiolet',
+  className = '',
 }) {
   return (
     <motion.article
       variants={staggerItem}
       whileHover={{ scale: 1.04 }}
       transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-      className="group relative flex aspect-square w-full max-w-[360px] items-center justify-center text-center"
+      className={`group relative flex aspect-square w-full max-w-[400px] items-center justify-center text-center ${className}`}
       style={{ containerType: 'inline-size' }}
     >
       {/* Flower background — spins + recolours on hover */}

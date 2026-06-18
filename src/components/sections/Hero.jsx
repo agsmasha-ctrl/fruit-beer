@@ -20,17 +20,36 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-container flex-1 flex-col items-center justify-center px-5 pt-10 text-center md:px-10 md:pt-14 xl:px-20">
         <motion.h1
           id="hero-title"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          initial="hidden"
+          animate="show"
+          variants={{ show: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } } }}
           className="font-display text-[clamp(2.75rem,8.2vw,8rem)] leading-[0.95] text-white"
           style={{ WebkitTextStroke: 'clamp(4px, 0.7vw, 10px) #1c221b', paintOrder: 'stroke' }}
         >
-          {/* Forced into two lines from the md breakpoint up */}
-          <span className="block md:whitespace-nowrap">Refresh your senses –</span>
-          <span className="block md:whitespace-nowrap">
-            <span className="text-green">Fruit Beer</span> in every sip!
-          </span>
+          {/* Two lines softly fade/rise into focus, one after the other */}
+          {['Refresh your senses –', null].map((line, i) => (
+            <motion.span
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 26, filter: 'blur(12px)' },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  filter: 'blur(0px)',
+                  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+                },
+              }}
+              className="block md:whitespace-nowrap"
+            >
+              {i === 0 ? (
+                line
+              ) : (
+                <>
+                  <span className="text-green">Fruit Beer</span> in every sip!
+                </>
+              )}
+            </motion.span>
+          ))}
         </motion.h1>
 
         <motion.div

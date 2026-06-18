@@ -27,15 +27,16 @@ export default function Collection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="mt-12 grid grid-cols-1 place-items-center gap-8 md:mt-16 md:grid-cols-2"
+          className="mt-12 grid grid-cols-1 place-items-center gap-8 md:mt-16 md:grid-cols-2 min-[1390px]:grid-cols-3"
         >
           {COLLECTION.cards.map((card, i) => (
             <CollectionCard
               key={card.name}
               {...card}
               className={
-                // 3rd card drops to its own row, centred across both columns
-                i === 2 ? 'md:col-span-2' : ''
+                // 768–1389px: 3rd card drops to its own row, centred across both
+                // columns. From 1390px up all three sit in a single row.
+                i === 2 ? 'md:col-span-2 min-[1390px]:col-span-1' : ''
               }
             />
           ))}

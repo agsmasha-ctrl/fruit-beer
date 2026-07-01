@@ -4,7 +4,7 @@ import { fadeUp, viewportOnce } from '../../lib/motion'
 import Tag from '../ui/Tag'
 import Marquee from '../ui/Marquee'
 import marqueeStrip from '../../assets/images/marquee-strip.svg'
-import handCan from '../../assets/images/hand-can.png'
+import handCan from '../../assets/images/hand-can.webp'
 
 export default function WhereToBuy() {
   const reduce = useReducedMotion()

@@ -27,7 +27,7 @@ export default function WhereToBuy() {
       <motion.img
         src={handCan}
         alt="A hand holding a can of Fruit Beer"
-        className="pointer-events-none absolute right-0 bottom-[23vw] z-20 w-[clamp(216px,60vw,648px)] drop-shadow-2xl lg:bottom-auto lg:top-[46%] lg:w-[clamp(560px,68vw,1307px)] lg:h-auto lg:max-h-none"
+        className="pointer-events-none absolute bottom-0 right-0 z-20 h-[95%] w-auto drop-shadow-2xl md:h-[130%] lg:h-[160%] lg:max-h-none"
         initial={{ x: '100%' }}
         animate={reduce ? { x: '0%' } : { x: ['100%', '0%', '0%', '100%'] }}
         transition={

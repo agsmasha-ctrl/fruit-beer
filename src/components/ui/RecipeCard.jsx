@@ -12,7 +12,7 @@ export default function RecipeCard({ title, body, className = '' }) {
       variants={staggerItem}
       whileHover={{ scale: 1.05 }}
       transition={{ type: 'spring', stiffness: 280, damping: 18 }}
-      className={`relative grid w-full max-w-[320px] place-items-center ${className}`}
+      className={`relative grid w-full max-w-[clamp(320px,20vw,384px)] place-items-center ${className}`}
     >
       <svg
         viewBox="0 0 455 236"
@@ -28,9 +28,11 @@ export default function RecipeCard({ title, body, className = '' }) {
           vectorEffect="non-scaling-stroke"
         />
       </svg>
-      <div className="relative z-10 flex flex-col gap-1.5 px-12 py-9 text-center">
-        <h3 className="font-display text-lg leading-tight text-fiolet sm:text-xl">{title}</h3>
-        <p className="font-sans text-xs font-medium leading-snug text-black sm:text-[13px]">
+      <div className="relative z-10 flex flex-col gap-1.5 px-[clamp(3rem,3vw,3.6rem)] py-[clamp(2.25rem,2.25vw,2.7rem)] text-center">
+        <h3 className="font-display text-[clamp(1.25rem,1.25vw,1.5rem)] leading-tight text-fiolet">
+          {title}
+        </h3>
+        <p className="font-sans text-[clamp(0.8125rem,0.8125vw,0.975rem)] font-medium leading-snug text-black">
           {body}
         </p>
       </div>

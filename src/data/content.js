@@ -4,7 +4,6 @@ import canOrange from '../assets/images/can-2.png'
 import canStrawberry from '../assets/images/can-3.png'
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
   { label: 'Our Mission', href: '#mission' },
   { label: 'Collection', href: '#collection' },
   { label: 'Recipe', href: '#recipe' },
@@ -120,7 +119,6 @@ export const SOCIAL = {
 export const FOOTER = {
   email: 'contact@fruitbeer.com',
   columns: [
-    { label: 'Home', href: '#home' },
     { label: 'Our Mission', href: '#mission' },
     { label: 'Collection', href: '#collection' },
     { label: 'Recipe', href: '#recipe' },

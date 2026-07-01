@@ -4,7 +4,7 @@ import { HERO } from '../../data/content'
 import Button from '../ui/Button'
 import Marquee from '../ui/Marquee'
 import { HeroSunburst } from '../ui/Decor'
-import cansStrip from '../../assets/images/hero-cans-strip.png'
+import cansStrip from '../../assets/images/hero-cans-strip.webp'
 
 // Soft custom easing shared by every stage of the hero entrance.
 const EASE = [0.22, 1, 0.36, 1]
@@ -120,6 +120,7 @@ export default function Hero() {
           <img
             src={cansStrip}
             alt="A row of Fruit Beer cans in apple, orange and strawberry flavours"
+            decoding="async"
             className="h-56 w-auto drop-shadow-xl sm:h-72 md:h-80 lg:h-[24rem]"
           />
         </Marquee>

@@ -75,21 +75,21 @@ export default function Recipe() {
               src={arrowLeft}
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute right-[-16%] top-0 z-30 w-[clamp(72px,10vw,150px)] lg:right-auto lg:left-[107%] lg:top-[-21%] lg:w-[60%]"
+              className="pointer-events-none absolute right-[-16%] top-0 z-30 hidden w-[clamp(72px,10vw,150px)] 2xl:block lg:right-auto lg:left-[107%] lg:top-[-21%] lg:w-[60%]"
             />
             {/* Arrow down to “Fruit Juice” — lower-left of the can (Figma 288:1994) */}
             <img
               src={arrowRight}
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute left-[-16%] top-[28%] z-30 w-[clamp(96px,13vw,180px)] lg:left-[-88%] lg:top-[12%] lg:w-[72%]"
+              className="pointer-events-none absolute left-[-16%] top-[28%] z-30 hidden w-[clamp(96px,13vw,180px)] 2xl:block lg:left-[-72%] lg:top-[12%] lg:w-[72%]"
             />
             {/* Squiggle to “Yeast” — lower-right of the can (Figma 326:728) */}
             <img
               src={squiggle}
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute right-[-20%] bottom-[2%] z-30 w-[clamp(80px,12vw,150px)] lg:right-auto lg:bottom-auto lg:left-[155%] lg:top-[22%] lg:w-[60%]"
+              className="pointer-events-none absolute right-[-20%] bottom-[2%] z-30 hidden w-[clamp(80px,12vw,150px)] 2xl:block lg:right-auto lg:bottom-auto lg:left-[135%] lg:top-[16%] lg:w-[44%]"
             />
           </div>
 

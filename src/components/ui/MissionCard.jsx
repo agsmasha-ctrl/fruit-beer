@@ -29,7 +29,8 @@ export default function MissionCard({ title, body, variant = 'white', orientatio
       variants={staggerItem}
       whileHover={{ y: -8 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="relative flex h-full w-full flex-col justify-center px-[7%] py-12 lg:px-[16%]"
+      className="relative flex h-full w-full flex-col justify-center px-[15%] py-[6%]"
+      style={{ containerType: 'inline-size' }}
     >
       <svg
         viewBox="0 0 537 510"
@@ -47,11 +48,25 @@ export default function MissionCard({ title, body, variant = 'white', orientatio
         />
       </svg>
 
+      {/* Text sizes scale with the leaf width (cqw) so it never overflows the
+          shape — the interlocking row shrinks the leaves below 1920, and the
+          font shrinks with them. Calibrated so a 537px leaf (≈1920) matches the
+          previous 35px / 16px. Clamped to stay readable on tiny leaves. */}
       <div
-        className={`relative z-10 mx-auto flex w-full max-w-[247px] flex-col items-center gap-3 text-center lg:max-w-none lg:items-start lg:text-left ${TEXT[variant]}`}
+        className={`relative z-10 mx-auto flex w-full flex-col items-center gap-[2.6cqw] text-center lg:items-start lg:text-left ${TEXT[variant]}`}
       >
-        <h3 className="text-display-h3 max-w-[12ch] font-display">{title}</h3>
-        <p className="max-w-[26ch] font-sans text-sm leading-relaxed md:text-base">{body}</p>
+        <h3
+          className="max-w-[12ch] font-display leading-[1.1]"
+          style={{ fontSize: 'clamp(1.05rem, 9.3cqw, 2.1875rem)' }}
+        >
+          {title}
+        </h3>
+        <p
+          className="max-w-[26ch] font-sans leading-snug"
+          style={{ fontSize: 'clamp(0.75rem, 4.26cqw, 1rem)' }}
+        >
+          {body}
+        </p>
       </div>
     </motion.article>
   )

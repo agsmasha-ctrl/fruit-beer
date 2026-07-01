@@ -12,7 +12,7 @@ export default function WhereToBuy() {
   return (
     <section
       id="find-us"
-      className="relative -mt-4 overflow-hidden bg-pink py-block lg:min-h-[clamp(440px,40vw,780px)]"
+      className="relative -mt-4 overflow-hidden bg-pink py-block lg:min-h-[clamp(360px,28vw,480px)]"
       aria-labelledby="find-us-heading"
     >
       <div

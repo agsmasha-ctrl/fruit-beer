@@ -33,6 +33,14 @@ export default function Marquee({
                 animation: `marquee-x ${speed}s linear infinite ${
                   direction === 'right' ? 'reverse' : 'normal'
                 }`,
+                // Force the track onto its own GPU compositing layer so the
+                // browser never has to repaint it mid-scroll — without this,
+                // some browsers drop/re-promote the layer on resize or while
+                // other content repaints, which shows up as a visible stutter.
+                // (Not setting `transform` here: the keyframe animation owns
+                // that property entirely and would silently override it.)
+                willChange: 'transform',
+                backfaceVisibility: 'hidden',
               }
         }
       >

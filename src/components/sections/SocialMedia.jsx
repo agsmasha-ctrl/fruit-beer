@@ -47,7 +47,7 @@ export default function SocialMedia() {
         initial="hidden"
         whileInView="show"
         viewport={viewportOnce}
-        className="container-fluid relative z-10 mt-6 min-h-[320px] aspect-[16/11] md:mt-2"
+        className="container-fluid relative z-10 mt-6 min-h-[320px] aspect-[16/11] md:mt-2 lg:aspect-[16/7]"
       >
         {/* Photos */}
         {PHOTOS.map((p, i) => (

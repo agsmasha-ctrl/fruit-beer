@@ -98,41 +98,23 @@ export function Sunburst({ className = '', rays = 16, color = '#ffffff', opacity
   )
 }
 
-// Half-sun: a filled dome at the bottom with rays fanning upward — recreates
-// the illustration provided for the hero background (behind the cans).
+// Half-sun illustration for the hero background — the exact Figma vector
+// (Union.svg), as a single static <path>. The old version drew ~14 separate
+// <rect> rays plus a dome; animating that many nodes on entry caused the
+// stutter. One path composites cheaply, so the rise-in stays smooth at every
+// resolution. The path already includes a full-width base band at the bottom
+// (y 913→1018), keeping the hero's bottom edge entirely pink so it merges
+// seamlessly into the next section.
 export function HeroSunburst({ className = '', color = '#fbd2ff' }) {
-  const cx = 960
-  const cy = 1000
-  const domeR = 460
-  const r1 = 420 // rays start just inside the dome edge
-  const r2 = 1080 // rays extend beyond the top
-  const w = 78 // ray width
-  const angles = [-82, -68, -54, -40, -26, -13, 0, 13, 26, 40, 54, 68, 82]
-
   return (
     <svg
-      viewBox="0 0 1920 1000"
+      viewBox="0 0 1920 1018"
       preserveAspectRatio="xMidYMax slice"
       className={className}
       aria-hidden="true"
     >
-      {/* rays */}
-      {angles.map((a) => (
-        <rect
-          key={a}
-          x={cx - w / 2}
-          y={cy - r2}
-          width={w}
-          height={r2 - r1}
-          fill={color}
-          transform={`rotate(${a} ${cx} ${cy})`}
-        />
-      ))}
-      {/* Full-width pink base that domes up in the centre. The flat full-width
-          bottom keeps the hero's bottom edge entirely pink so it merges into the
-          next (pink) section — no fiolet strip shows between/under the cans. */}
       <path
-        d={`M 0 ${cy} L 1920 ${cy} L 1920 ${cy - 70} C 1450 ${cy - 70}, 1250 ${cy - domeR}, ${cx} ${cy - domeR} C 670 ${cy - domeR}, 470 ${cy - 70}, 0 ${cy - 70} Z`}
+        d="M1522 700L1818 528L1765 437L1463 612C1451.4 597.452 1439.79 583.481 1427 570L1676 320L1602 246L1349 500C1334.88 489.265 1319.99 479.56 1305 470L1485 156L1395 103L1212 421C1196.26 414.267 1180.35 408.481 1164 403L1259 47L1158 19L1063 378C1046.46 375.344 1028.93 372.366 1012 371V0H908V371C891.066 372.366 873.54 375.344 857 378L762 19L661 47L756 403C739.649 408.481 723.739 414.267 708 421L525 103L435 156L615 470C600.008 479.559 585.12 489.265 571 500L318 246L244 320L493 570C480.213 583.481 468.605 597.452 457 612L155 437L102 528L398 700C388.42 717.077 379.041 734.007 371 752L46 665L19 766L336 852C330.749 871.98 326.354 892.314 323 913H0V1018H1920V913H1597C1593.65 892.314 1589.25 871.98 1584 852L1901 766L1874 665L1549 752C1540.96 734.007 1531.58 717.077 1522 700Z"
         fill={color}
       />
     </svg>

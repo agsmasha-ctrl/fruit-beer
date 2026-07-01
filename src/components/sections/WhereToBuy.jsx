@@ -72,6 +72,7 @@ export default function WhereToBuy() {
               src={marqueeStrip}
               alt={i === 0 ? 'Available at Metro, Lidl, Tesco and Carrefour' : ''}
               aria-hidden={i === 0 ? undefined : true}
+              decoding="async"
               className="h-28 w-auto sm:h-32 lg:h-[clamp(200px,19.6vw,376px)]"
             />
           ))}

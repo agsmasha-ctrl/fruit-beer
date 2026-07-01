@@ -39,11 +39,15 @@ export default function CollectionCard({
 
       {/* Content centred within the flower's safe area */}
       <div className="relative z-10 flex w-full flex-col items-center justify-center gap-1.5 px-[24%]">
-        <motion.img
-          src={can}
-          alt={`${name} fruit beer can`}
-          className="mb-1 w-[38%] drop-shadow-xl transition-transform duration-300 group-hover:-translate-y-1.5"
-        />
+        {/* Wrapper is the flex item; the <img> is a plain block child so WebKit
+            can't stretch it (Safari mis-sizes %-width imgs that are flex items). */}
+        <div className="mb-1 w-[38%]">
+          <motion.img
+            src={can}
+            alt={`${name} fruit beer can`}
+            className="block aspect-[282/482] w-full object-contain drop-shadow-xl transition-transform duration-300 group-hover:-translate-y-1.5"
+          />
+        </div>
         <h3
           className={`font-display leading-tight ${titleColor}`}
           style={{ fontSize: 'clamp(0.875rem, 5.5cqw, 1.5rem)' }}
